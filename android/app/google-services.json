@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "979184929135",
+    "project_id": "lith-55753",
+    "storage_bucket": "lith-55753.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979184929135:android:08e901bb7886b83f1e809a",
+        "android_client_info": {
+          "package_name": "com.LithAfrica.lith_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979184929135-odtps0g528fo7onk4t3rkt66tcn99vg4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9zjtsX-tisarK7hbHb17nM4_TL8SSSv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979184929135-odtps0g528fo7onk4t3rkt66tcn99vg4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -115,7 +115,7 @@ class _PersonalEmergencyContactsState extends State<PersonalEmergencyContacts> {
             onPressed: () => showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                title: const Text('Add Contact Details'),
+                title: const Text('Add Emergency Contact'),
                 content: SizedBox(
                     width: 300,
                     height: 200,
@@ -125,7 +125,7 @@ class _PersonalEmergencyContactsState extends State<PersonalEmergencyContacts> {
                           controller: _textFieldController1,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: "Enter Contact Name",
+                            labelText: "Contact Name",
                           ),
                         ),
                         const SizedBox(
@@ -133,9 +133,11 @@ class _PersonalEmergencyContactsState extends State<PersonalEmergencyContacts> {
                         ),
                         TextFormField(
                           controller: _textFieldController2,
+                          keyboardType: TextInputType.number,
+                          maxLength: 10,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: "Enter Phone No.",
+                            labelText: "Phone Number",
                           ),
                         ),
                       ],
@@ -150,7 +152,6 @@ class _PersonalEmergencyContactsState extends State<PersonalEmergencyContacts> {
                       _addContact(_textFieldController1.text,
                           _textFieldController2.text),
                       Navigator.pop(context, 'Add'),
-                      //refreshContacts(),
                     },
                     child: const Text('Add'),
                   ),

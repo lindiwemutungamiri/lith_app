@@ -100,7 +100,6 @@ class _PersonalEmergencyContactsState extends State<PersonalEmergencyContacts> {
                                         subtitle:
                                             Text(emergencyContactsNo[index]),
                                         dense: true,
-                                        trailing: const Icon(Icons.delete),
                                         leading: CircleAvatar(
                                             child: Text(
                                                 emergencyContactsInitials[

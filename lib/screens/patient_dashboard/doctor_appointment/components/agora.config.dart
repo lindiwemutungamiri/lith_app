@@ -14,4 +14,4 @@ String channelId = channelNameEntered;
 const uid = 0;
 
 /// Your string user ID
-const stringUid = 'Akshatji';
+const stringUid = 'lith_app';

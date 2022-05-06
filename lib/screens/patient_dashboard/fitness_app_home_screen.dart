@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:lith_app/screens/Settings_Pages/settings.dart';
 import 'package:lith_app/screens/patient_dashboard/training/training_home_screen.dart';
 
+import '../emergency_calls/home_tabs.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'doctor_appointment/screens/doctor_appointment.dart';
 import 'fitness_app_theme.dart';
@@ -134,8 +135,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      const DoctorAppointment(); //change this to recommendation screen
+                  tabBody = const HomeScreenTabs();
                 });
               });
             } else if (index == 3) {

@@ -42,7 +42,7 @@ class DoctorDashBoardState extends State<DoctorDashBoard> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Doctor \'s Dashboard',
+            'Provider \'s Dashboard',
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Colors.cyan,

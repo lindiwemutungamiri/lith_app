@@ -1,119 +1,155 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/services.dart';
+import 'package:lith_app/screens/patient_dashboard/training/components/Model/youtube_model.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-final List<String> imagesList = [
-  'https://akm-img-a-in.tosshub.com/indiatoday/sunsetyoga-2_647_062115121022.jpg?Q7x3aPFYhLV6E2CgD7oXmSdjoh5wnAiq&size=1200:675',
-  'https://julierolandrealtor.com/wp-content/uploads/2017/07/yoga-silhouettes.jpg',
-  'https://i.guim.co.uk/img/media/d8b7a69601c6ac049fd8e57819786adc91506003/0_2_2545_1528/master/2545.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=694f53610eb345e25c763f20935d7c90',
-  'https://cdn1.coachmag.co.uk/sites/coachmag/files/2020/01/best-abs-exercises.jpg',
-];
-
-
-class VideoSuggestions extends StatefulWidget {
-  const VideoSuggestions({key}) : super(key: key);
+class YoutubePlayerDemo extends StatefulWidget {
+  YoutubePlayerDemo({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
-  _VideoSuggestionsState createState() => _VideoSuggestionsState();
+  _YoutubePlayerDemoState createState() => _YoutubePlayerDemoState();
 }
 
-class _VideoSuggestionsState extends State<VideoSuggestions> {
-  int _currentIndex = 0;
+class _YoutubePlayerDemoState extends State<YoutubePlayerDemo> {
+  late YoutubePlayerController _ytbPlayerController;
+  List<YoutubeModel> videosList = [
+    YoutubeModel(id: 1, youtubeId: 'jA14r2ujQ7s'),
+    YoutubeModel(id: 2, youtubeId: 'UQGoVB_zMYQ'),
+    YoutubeModel(id: 3, youtubeId: 'FLcRb289uEM'),
+    YoutubeModel(id: 4, youtubeId: 'g2nMKzhkvxw'),
+    YoutubeModel(id: 5, youtubeId: 'qoDPvFAk2Vg'),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _setOrientation([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        _ytbPlayerController = YoutubePlayerController(
+          initialVideoId: videosList[0].youtubeId,
+          params: const YoutubePlayerParams(
+            showFullscreenButton: true,
+          ),
+        );
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    _setOrientation([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    _ytbPlayerController.close();
+  }
+
+  _setOrientation(List<DeviceOrientation> orientations) {
+    SystemChrome.setPreferredOrientations(orientations);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            autoPlay: true,
-            height: 170,
-            onPageChanged: (index, reason) {
-              setState(
-                    () {
-                  _currentIndex = index;
-                },
-              );
-            },
-          ),
-          items: imagesList
-              .map(
-                (item) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Container(
-                width: 400,
-                decoration: BoxDecoration(
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: Colors.black45
-                              .withOpacity(0.1),
-                          offset: const Offset(0, 0),
-                          blurRadius: 10),
-                    ],
-                    image: DecorationImage(
-                        image: NetworkImage(
-                          item,),
-                        fit: BoxFit.cover),
-                  color: Colors.cyan,
-                  borderRadius: const BorderRadius.only(topRight: Radius.circular(55),topLeft:Radius.circular(20),bottomLeft: Radius.circular(20),bottomRight:Radius.circular(20) )
-                ),
-                child: Column(
-                  children: <Widget>[
-                    const SizedBox(height: 115,),
-                    Container(
-                      height: 55,
-                      width: 400,
-                      decoration: const BoxDecoration(
-                        color: Colors.black38,
-                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight:Radius.circular(20) )
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          const SizedBox(width: 10,),
-                          const Icon(Icons.alarm,size: 20,color: Colors.white,),
-                          const Text("5 min",style: TextStyle(color: Colors.white),),
-                          const SizedBox(width: 100,),
-                          Container(
-                            height: 45,
-                            width: 45,
-                            decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(50))
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
-                                Icon(Icons.play_arrow,size: 30,)
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          )
-              .toList(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildYtbView(),
+            _buildMoreVideoTitle(),
+            _buildMoreVideosView(),
+          ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: imagesList.map((urlOfItem) {
-            int index = imagesList.indexOf(urlOfItem);
-            return Container(
-              width: 10.0,
-              height: 10.0,
-              margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _currentIndex == index
-                    ? const Color.fromRGBO(0, 0, 0, 0.8)
-                    : const Color.fromRGBO(0, 0, 0, 0.3),
-              ),
-            );
-          }).toList(),
-        )
-      ],
+      ),
+    );
+  }
+
+  _buildYtbView() {
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: _ytbPlayerController != null
+          ? YoutubePlayerIFrame(controller: _ytbPlayerController)
+          : Center(child: CircularProgressIndicator()),
+    );
+  }
+
+  _buildMoreVideoTitle() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(14, 10, 182, 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: const [
+          Text(
+            "More videos",
+            style: TextStyle(fontSize: 16, color: Colors.black),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildMoreVideosView() {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: ListView.builder(
+            itemCount: videosList.length,
+            physics: AlwaysScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  final _newCode = videosList[index].youtubeId;
+                  _ytbPlayerController.load(_newCode);
+                  _ytbPlayerController.stop();
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 5,
+                  margin: EdgeInsets.symmetric(vertical: 7),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(18),
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: <Widget>[
+                        Positioned(
+                          child: CachedNetworkImage(
+                            imageUrl:
+                                "https://img.youtube.com/vi/${videosList[index].youtubeId}/0.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              "assets/images/ytbPlayBotton.png",
+                              height: 30,
+                              width: 30,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }),
+      ),
     );
   }
 }
-

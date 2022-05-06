@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lith_app/screens/patient_dashboard/doctor_appointment/screens/doctors_list.dart';
 
 import '../constant.dart';
 
@@ -21,8 +20,8 @@ class CategoryCard extends StatelessWidget {
       height: 160,
       child: InkWell(
         onTap: () {
-          Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
-              builder: (context) => DoctorsList(role: _category)));
+          //Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+          //builder: (context) => DoctorsList(role: _category)));
         },
         child: Stack(
           children: <Widget>[

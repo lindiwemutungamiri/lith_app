@@ -33,7 +33,7 @@ class _SearchBarState extends State<SearchBar> {
           ),
           child: TextField(
             decoration: const InputDecoration.collapsed(
-              hintText: 'Search for doctors',
+              hintText: 'Search for providers',
             ),
             onChanged: (value) {
               searchText = value;

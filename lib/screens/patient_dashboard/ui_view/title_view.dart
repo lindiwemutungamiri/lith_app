@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lith_app/screens/patient_dashboard/BodyMesurment/input.dart';
-import 'package:lith_app/screens/patient_dashboard/Meals/meals_today.dart';
-import 'package:lith_app/screens/patient_dashboard/MediterranDiet/diet.dart';
 import 'package:lith_app/screens/patient_dashboard/water/water_taken.dart';
 
 import '../fitness_app_theme.dart';
@@ -56,12 +53,6 @@ class TitleView extends StatelessWidget {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (BuildContext context) {
                         switch (index) {
-                          case 0:
-                            return const Diet();
-                          case 1:
-                            return const Meals();
-                          case 2:
-                            return const InputPage();
                           default:
                             return const WaterTaken();
                         }

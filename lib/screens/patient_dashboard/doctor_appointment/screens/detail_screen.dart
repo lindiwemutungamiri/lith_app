@@ -213,7 +213,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               height: 50,
                             ),
                             Text(
-                              'About Doctor',
+                              'About Provider',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,

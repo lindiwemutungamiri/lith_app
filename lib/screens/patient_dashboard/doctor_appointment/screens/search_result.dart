@@ -80,7 +80,7 @@ class _SearchResultState extends State<SearchResult> {
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
-                      'Find Your Desired\nDoctor',
+                      'Find a Wellness \nProfessional',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 32,
@@ -106,7 +106,7 @@ class _SearchResultState extends State<SearchResult> {
                           child: TextField(
                             controller: searchController..text = searchText,
                             decoration: const InputDecoration.collapsed(
-                              hintText: 'Search for doctors',
+                              hintText: 'Search for Providers',
                             ),
                             onChanged: (value) {
                               searchText = value;

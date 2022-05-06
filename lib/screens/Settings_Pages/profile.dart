@@ -138,7 +138,7 @@ class _PatientProfileState extends State<PatientProfile> {
                                     padding: EdgeInsets.all(8),
                                     child: Text(
                                       "Add a profile picture, name and photo to let "
-                                      "doctors/people know more about you.",
+                                      "providers/people know more about you.",
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.white,
@@ -211,7 +211,6 @@ class _PatientProfileState extends State<PatientProfile> {
                                                 BorderSide(color: Colors.white),
                                           ),
                                           hintText: "Enter your full name",
-                                          prefixText: "Mr. ",
                                           prefixStyle: TextStyle(
                                             color: Colors.white,
                                           ),
@@ -252,7 +251,7 @@ class _PatientProfileState extends State<PatientProfile> {
                                       ..text = username,
                                     decoration: const InputDecoration(
                                         border: InputBorder.none,
-                                        hintText: "Enter you username"),
+                                        hintText: "Enter your username"),
                                   ),
                                 ),
                                 const SizedBox(height: 10),

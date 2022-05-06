@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Doctor\'s Appointment',
+          'Therapist\'s Appointment',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.cyan,
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Find Your Desired\nDoctor',
+                  'Find a Wellness \nProvider',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 32,
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  'Top Doctors',
+                  'Available Providers',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -110,23 +110,23 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             width: 30,
           ),
-          CategoryCard('Psychiatrist', 'assets/icons/psychiatrist.png',
+          CategoryCard('Therapist', 'assets/icons/psychiatrist.png',
+              kOrangeColor, 'Therapist'),
+          const SizedBox(
+            width: 10,
+          ),
+          CategoryCard('Counselor', 'assets/images/counselor.png', kBlueColor,
+              'Counseling'),
+          const SizedBox(
+            width: 10,
+          ),
+          CategoryCard(
+              'Coach', 'assets/images/coach.png', kYellowColor, 'Coach'),
+          const SizedBox(
+            width: 10,
+          ),
+          CategoryCard('Psychiatrist', 'assets/images/psychiatrist.png',
               kOrangeColor, 'Psychiatrist'),
-          const SizedBox(
-            width: 10,
-          ),
-          CategoryCard('Dental\nSurgeon', 'assets/icons/dental_surgeon.png',
-              kBlueColor, 'Dental'),
-          const SizedBox(
-            width: 10,
-          ),
-          CategoryCard('Heart\nSurgeon', 'assets/icons/heart_surgeon.png',
-              kYellowColor, 'Heart Surgeon'),
-          const SizedBox(
-            width: 10,
-          ),
-          CategoryCard('Eye\nSpecialist', 'assets/icons/eye_specialist.png',
-              kOrangeColor, 'Eye Specialist'),
           const SizedBox(
             width: 30,
           ),

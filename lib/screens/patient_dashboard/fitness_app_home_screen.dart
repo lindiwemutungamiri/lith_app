@@ -126,7 +126,8 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody = const TrainingScreen();
+                  // tabBody = const TrainingScreen();
+                  tabBody = YogaPage(title: 'Relaxation');
                 });
               });
             } else if (index == 2) {

@@ -36,6 +36,7 @@ class _HomeScreenTabsState extends State<HomeScreenTabs>
           'Emergency Contacts',
           style: TextStyle(color: Colors.white),
         ),
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.cyan,
         elevation: 1,
         bottom: TabBar(

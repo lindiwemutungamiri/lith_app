@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lith_app/screens/patient_dashboard/my_diary/water_view.dart';
-import 'package:lith_app/screens/patient_dashboard/ui_view/body_measurement.dart';
 import 'package:lith_app/screens/patient_dashboard/ui_view/glass_view.dart';
-import 'package:lith_app/screens/patient_dashboard/ui_view/mediterranean_diet_view.dart';
 import 'package:lith_app/screens/patient_dashboard/ui_view/title_view.dart';
 
 import '../fitness_app_theme.dart';
-import 'meals_list_view.dart';
 
 var now = DateTime.now();
 var formatter = DateFormat('yyyy-MM-dd');
@@ -66,75 +63,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   void addAllListData() {
     const int count = 9;
 
-    listViews.add(
-      TitleView(
-        titleTxt: 'Diet details',
-        subTxt: 'Track Workout',
-        index: 0,
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve: const Interval((1 / count) * 0, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve: const Interval((1 / count) * 1, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      TitleView(
-        titleTxt: 'Meals today',
-        subTxt: 'Set Target',
-        index: 1,
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve: const Interval((1 / count) * 2, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      MealsListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: const Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-      ),
-    );
-
-    listViews.add(
-      TitleView(
-        titleTxt: 'Body measurement',
-        subTxt: 'Today',
-        index: 2,
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-          CurvedAnimation(
-              parent: widget.animationController!,
-              curve: const Interval((1 / count) * 4, 1.0,
-                  curve: Curves.fastOutSlowIn)),
-        ),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      BodyMeasurementView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve: const Interval((1 / count) * 5, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
     listViews.add(
       TitleView(
         titleTxt: 'Water',
@@ -264,7 +192,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'My Diary',
+                                  'Today',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,

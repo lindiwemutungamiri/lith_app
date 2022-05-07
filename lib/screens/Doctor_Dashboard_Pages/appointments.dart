@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../agoraCalls/pages/home_page.dart';
+
 class AppointmentsPage extends StatefulWidget {
   const AppointmentsPage({Key? key}) : super(key: key);
 
@@ -13,13 +15,14 @@ class DoctorDashBoardState extends State<AppointmentsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Appointments',
+          'Appointments / Video Calls',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.cyan,
         elevation: 1,
         leading: IconButton(
           onPressed: () {
+            IndexPage();
             Navigator.of(context).pop();
           },
           icon: const Icon(
@@ -28,6 +31,8 @@ class DoctorDashBoardState extends State<AppointmentsPage> {
           ),
         ),
       ),
+      //call video calling page
+      body: IndexPage(),
     );
   }
 }

@@ -41,7 +41,7 @@ class DoctorDashBoardState extends State<DoctorDashBoard> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Provider \'s Dashboard',
+            'Doctor \'s Dashboard',
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Colors.cyan,
@@ -171,48 +171,49 @@ class DoctorDashBoardState extends State<DoctorDashBoard> {
 
 // ignore: must_be_immutable
 class OptionsCreater extends StatelessWidget {
-  // Items item1 = Items(
-  //   title: "Patients Data",
-  //   subtitle: "About assigned patients",
-  //   event: "3 Patients",
-  //   img: "assets/patient.png",
-  // );
-  // Items item2 = Items(
-  //   title: "Appointments",
-  //   subtitle: "Info about appointments ",
-  //   event: "4 appointments",
-  //   img: "assets/appointment.png",
-  // );
-  // Items item3 = Items(
-  //   title: "Availability",
-  //   subtitle: "Set your available timings",
-  //   event: "3 slots",
-  //   img: "assets/available.png",
-  // );
-  // Items item4 = Items(
-  //   title: "Interaction",
-  //   subtitle: "Interact with random patients",
-  //   event: "3 random available",
-  //   img: "assets/interaction.png",
-  // );
-  // Items item5 = Items(
-  //   title: "Report",
-  //   subtitle: "Report a patient",
-  //   event: "1 reported",
-  //   img: "assets/report.png",
-  // );
-  Items item6 = Items(
+  Items item1 = Items(
+    title: "Appointments",
+    subtitle: "",
+    event: "Video call your patients",
+    img: "assets/appointment.png",
+  );
+  Items item2 = Items(
     title: "Settings",
-    subtitle: "Access different settings such as update profile and sign out.",
-    event: "6 Items",
+    subtitle: "Access your settings",
+    event: "6 items",
     img: "assets/settings.png",
+  );
+
+  Items item3 = Items(
+    title: "Availability",
+    subtitle: "",
+    event: "Coming Soon",
+    img: "assets/available.png",
+  );
+  Items item4 = Items(
+    title: "Interaction",
+    subtitle: "",
+    event: "Coming Soon",
+    img: "assets/interaction.png",
+  );
+  Items item5 = Items(
+    title: "Report",
+    subtitle: "",
+    event: "Coming Soon",
+    img: "assets/report.png",
+  );
+  Items item6 = Items(
+    title: "Patients Data",
+    subtitle: "", //eg about assigned patients
+    event: "Coming soon", //eg 3 patients
+    img: "assets/patient.png",
   );
 
   OptionsCreater({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<Items> myList = [item6];
+    List<Items> myList = [item1, item2, item3, item4, item5, item6];
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,

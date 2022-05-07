@@ -107,7 +107,12 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     return Container(
       color: FitnessAppTheme.background,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.cyan,
+          elevation: 1,
+        ),
+        //backgroundColor: Colors.transparent,
         body: Stack(
           children: <Widget>[
             getMainListViewUI(),

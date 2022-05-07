@@ -150,9 +150,8 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                             left: 4, top: 2, bottom: 5),
                                         child: Text(
                                           'of daily goal ' +
-                                              (watertarget * 1 / 1000)
-                                                  .toString() +
-                                              'L',
+                                              (watertarget).toString() +
+                                              ' L',
                                           textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontFamily:

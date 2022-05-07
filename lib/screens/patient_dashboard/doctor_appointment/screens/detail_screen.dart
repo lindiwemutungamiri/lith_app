@@ -28,6 +28,23 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Contact Provider',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.cyan,
+        elevation: 1,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: FutureBuilder(
             future: loadProfilePic(widget._uid),
@@ -36,7 +53,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/detail_illustration.png'),
+                    image: AssetImage('assets/images/lithTeam3.png'),
                     alignment: Alignment.topCenter,
                     fit: BoxFit.fitWidth,
                   ),
@@ -61,10 +78,6 @@ class _DetailScreenState extends State<DetailScreen> {
                               'assets/icons/back.svg',
                               height: 18,
                             ),
-                          ),
-                          SvgPicture.asset(
-                            'assets/icons/3dots.svg',
-                            height: 18,
                           ),
                         ],
                       ),
@@ -212,7 +225,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ],
                             ),
                             const SizedBox(
-                              height: 50,
+                              height: 20,
                             ),
                             Text(
                               'About Provider',
@@ -233,7 +246,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                             ),
                             const SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Text(
                               'Upcoming Schedules',
@@ -248,8 +261,8 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                             ScheduleCard(
                               'Consultation',
-                              'Send me an email, let us chat',
-                              '',
+                              'Send an email to lithafrica1@gmail.com, \n and we will get back to you.',
+                              'C',
                               '',
                               kBlueColor,
                             ),

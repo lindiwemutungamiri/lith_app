@@ -3,11 +3,11 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lith_app/screens/patient_dashboard/doctor_appointment/components/schedule_card.dart';
-import 'package:lith_app/screens/patient_dashboard/doctor_appointment/screens/token_maker.dart';
 import 'package:lith_app/utils/load_profile_pic.dart';
 
+import '../../../agoraCalls/pages/home_page.dart';
+import '../../../agoraCalls/pages/voice_call.dart';
 import '../constant.dart';
-import 'audio_calling.dart';
 
 //ignore: must_be_immutable
 class DetailScreen extends StatefulWidget {
@@ -139,7 +139,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                                                 "Audio Calling"),
                                                           ),
                                                           body:
-                                                              const JoinChannelAudio(),
+                                                              //const JoinChannelAudio(),
+                                                              VoiceCallPage(),
                                                         )));
                                           },
                                           child: Container(
@@ -186,8 +187,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                                             title: const Text(
                                                                 "Video Calling"),
                                                           ),
-                                                          body:
-                                                              const TokenMaker(),
+                                                          body: IndexPage(),
+
+                                                          //const TokenMaker(),
                                                         )));
                                           },
                                           child: Container(
@@ -246,33 +248,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                             ScheduleCard(
                               'Consultation',
-                              'Sunday . 9am - 11am',
-                              '12',
-                              'Jan',
+                              'Send me an email, let us chat',
+                              '',
+                              '',
                               kBlueColor,
                             ),
                             const SizedBox(
                               height: 10,
-                            ),
-                            ScheduleCard(
-                              'Consultation',
-                              'Sunday . 9am - 11am',
-                              '13',
-                              'Jan',
-                              kYellowColor,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            ScheduleCard(
-                              'Consultation',
-                              'Sunday . 9am - 11am',
-                              '14',
-                              'Jan',
-                              kOrangeColor,
-                            ),
-                            const SizedBox(
-                              height: 20,
                             ),
                           ],
                         ),

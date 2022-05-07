@@ -10,9 +10,11 @@ import 'package:lith_app/screens/Settings_Pages/about_us.dart';
 import 'package:lith_app/screens/Settings_Pages/help.dart';
 import 'package:lith_app/screens/Settings_Pages/new_password.dart';
 import 'package:lith_app/screens/Settings_Pages/profile.dart';
+import 'package:lith_app/screens/patient_dashboard/fitness_app_home_screen.dart';
 import 'package:lith_app/screens/sign_in_page.dart';
 import 'package:lith_app/services/database.dart';
 import 'package:lith_app/services/firebase_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatefulWidget {
   final String role;
@@ -42,7 +44,30 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         backgroundColor: Colors.cyan,
         elevation: 1,
-        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            if (prefs.getString('login_as') == "doctor") {
+              Navigator.of(context).pop();
+            } else {
+              if (widget.role == "doctor") {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DoctorProfile()));
+              } else {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FitnessAppHomeScreen()));
+              }
+            }
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance.collection('userdata').snapshots(),

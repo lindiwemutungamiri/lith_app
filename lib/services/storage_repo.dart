@@ -6,8 +6,8 @@ import 'firebase_service.dart';
 import 'locator.dart';
 
 class StorageRepo {
-  FirebaseStorage storage = FirebaseStorage.instanceFor(
-      bucket: "gs://mental-health-e175a.appspot.com");
+  FirebaseStorage storage =
+      FirebaseStorage.instanceFor(bucket: "gs://lith-55753.appspot.com");
 
   final FirebaseService _firebaseService = locator.get<FirebaseService>();
 

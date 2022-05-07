@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:intl/intl.dart';
 import 'package:lith_app/screens/patient_dashboard/journal/db/notes_database.dart';
 import 'package:lith_app/screens/patient_dashboard/journal/model/note.dart';
 import 'package:lith_app/screens/patient_dashboard/journal/page/edit_note_page.dart';
-import 'package:lith_app/screens/patient_dashboard/journal/page/notes_page.dart';
 
 class NoteDetailPage extends StatefulWidget {
   final int noteId;
@@ -40,6 +38,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          actions: [editButton(), deleteButton()],
           backgroundColor: Colors.cyan,
           elevation: 1,
           leading: IconButton(
@@ -99,88 +98,25 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                   ],
                 ),
               ),
-        floatingActionButton: SpeedDial(
-            icon: Icons.arrow_upward_outlined,
-            label: const Text('Actions'),
-            backgroundColor: Colors.black,
-            children: [
-              SpeedDialChild(
-                child: const Icon(Icons.edit),
-                label: 'Edit',
-                backgroundColor: Colors.cyan,
-                onTap: () {
-                  _edit(context);
-                },
-              ),
-              SpeedDialChild(
-                child: const Icon(Icons.delete),
-                label: 'Delete',
-                backgroundColor: Colors.cyan,
-                onTap: () {
-                  _delete(context);
-                },
-              ),
-            ]),
       );
 
-  void _edit(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext ctx) {
-          return AlertDialog(
-            title: const Text('Please Confirm'),
-            content: const Text('Are you sure to edit this journal?'),
-            actions: [
-              // The "Yes" button
-              TextButton(
-                  onPressed: () async {
-                    if (isLoading) return;
+  Widget editButton() => IconButton(
+      icon: Icon(Icons.edit_outlined),
+      onPressed: () async {
+        if (isLoading) return;
 
-                    await Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => AddEditNotePage(note: note),
-                    ));
-                    Navigator.of(context).pop();
+        await Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => AddEditNotePage(note: note),
+        ));
 
-                    refreshNote();
-                  },
-                  child: const Text('Yes')),
-              TextButton(
-                  onPressed: () {
-                    // Close the dialog
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('No'))
-            ],
-          );
-        });
-  }
+        refreshNote();
+      });
+  Widget deleteButton() => IconButton(
+        icon: Icon(Icons.delete),
+        onPressed: () async {
+          await NotesDatabase.instance.delete(widget.noteId);
 
-  void _delete(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext ctx) {
-          return AlertDialog(
-            title: const Text('Please Confirm'),
-            content: const Text('Are you sure to remove this journal?'),
-            actions: [
-              // The "Yes" button
-              TextButton(
-                  onPressed: () async {
-                    await NotesDatabase.instance.delete(widget.noteId);
-
-                    await Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => NotesPage()),
-                    );
-                  },
-                  child: const Text('Yes')),
-              TextButton(
-                  onPressed: () {
-                    // Close the dialog
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('No'))
-            ],
-          );
-        });
-  }
+          Navigator.of(context).pop();
+        },
+      );
 }

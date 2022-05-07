@@ -9,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'Doctor_Dashboard_Pages/appointments.dart';
 import 'Doctor_Dashboard_Pages/availability.dart';
 import 'Doctor_Dashboard_Pages/edit_profile.dart';
-import 'Doctor_Dashboard_Pages/important_notifications.dart';
 import 'Doctor_Dashboard_Pages/interaction.dart';
 import 'Doctor_Dashboard_Pages/patients_data.dart';
 import 'Doctor_Dashboard_Pages/reports.dart';
@@ -47,19 +46,6 @@ class DoctorDashBoardState extends State<DoctorDashBoard> {
           ),
           backgroundColor: Colors.cyan,
           elevation: 1,
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.notification_add,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        const ImportantNotificationsPage()));
-              },
-            )
-          ],
         ),
         body: StreamBuilder<QuerySnapshot>(
             stream:
@@ -185,40 +171,40 @@ class DoctorDashBoardState extends State<DoctorDashBoard> {
 
 // ignore: must_be_immutable
 class OptionsCreater extends StatelessWidget {
-  Items item1 = Items(
-    title: "Patients Data",
-    subtitle: "About assigned patients",
-    event: "3 Patients",
-    img: "assets/patient.png",
-  );
-  Items item2 = Items(
-    title: "Appointments",
-    subtitle: "Info about appointments ",
-    event: "4 appointments",
-    img: "assets/appointment.png",
-  );
-  Items item3 = Items(
-    title: "Availability",
-    subtitle: "Set your available timings",
-    event: "3 slots",
-    img: "assets/available.png",
-  );
-  Items item4 = Items(
-    title: "Interaction",
-    subtitle: "Interact with random patients",
-    event: "3 random available",
-    img: "assets/interaction.png",
-  );
-  Items item5 = Items(
-    title: "Report",
-    subtitle: "Report a patient",
-    event: "1 reported",
-    img: "assets/report.png",
-  );
+  // Items item1 = Items(
+  //   title: "Patients Data",
+  //   subtitle: "About assigned patients",
+  //   event: "3 Patients",
+  //   img: "assets/patient.png",
+  // );
+  // Items item2 = Items(
+  //   title: "Appointments",
+  //   subtitle: "Info about appointments ",
+  //   event: "4 appointments",
+  //   img: "assets/appointment.png",
+  // );
+  // Items item3 = Items(
+  //   title: "Availability",
+  //   subtitle: "Set your available timings",
+  //   event: "3 slots",
+  //   img: "assets/available.png",
+  // );
+  // Items item4 = Items(
+  //   title: "Interaction",
+  //   subtitle: "Interact with random patients",
+  //   event: "3 random available",
+  //   img: "assets/interaction.png",
+  // );
+  // Items item5 = Items(
+  //   title: "Report",
+  //   subtitle: "Report a patient",
+  //   event: "1 reported",
+  //   img: "assets/report.png",
+  // );
   Items item6 = Items(
     title: "Settings",
-    subtitle: "Access different settings",
-    event: "2 Items",
+    subtitle: "Access different settings such as update profile and sign out.",
+    event: "6 Items",
     img: "assets/settings.png",
   );
 
@@ -226,7 +212,7 @@ class OptionsCreater extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Items> myList = [item1, item2, item3, item4, item5, item6];
+    List<Items> myList = [item6];
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,

@@ -300,7 +300,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                       ..text = hospital,
                                     decoration: const InputDecoration(
                                       border: InputBorder.none,
-                                      hintText: "Enter hospital",
+                                      hintText: "Enter hospital / University",
                                     ),
                                   ),
                                 ),

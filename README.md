@@ -1,16 +1,34 @@
-# lith_app
+# Lith Africa Mental Health App.
+#Mobile APP Development Final Project
 
-A new Flutter project.
+For my final project, I built the Lith App for the Lith Africa company.
+\n
+LITH Africa is a start-up that is leveraging intuitive technology for health.
+The start-up is currently building products that will change the face of mental health in Africa.
+The company aims to provide a centralized platform for solving mental health issues such as major depressive
+disorder, anxiety, self-image issues, among other mind health issues. Ultimately,
+Lith aims to develop a positive best friend that fits into the hands of the user wherever he/she goes.
 
-## Getting Started
+<p float="left">
+  <img src="/assets/githubPictures/one.png" width="220" />
+  <img src="/assets/githubPictures/two.png" width="220" />
+  <img src="/assets/githubPictures/three.png" width="220" />
 
-This project is a starting point for a Flutter application.
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+<p float="left">
+  <img src="/assets/githubPictures/four.png" width="220" />
+  <img src="/assets/githubPictures/five.png" width="220" />
+  <img src="/assets/githubPictures/six.png" width="220" />
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p float="left">
+  <img src="/assets/githubPictures/seven.png" width="220" />
+  <img src="/assets/githubPictures/eight.png" width="220" />
+  <img src="/assets/githubPictures/nine.png" width="220" />
+</p>
+<p float="left">
+  <img src="/assets/githubPictures/ten.png" width="220" />
+  <img src="/assets/githubPictures/eleven.png" width="220" />
+  <img src="/assets/githubPictures/twelve.png" width="220" />
+</p>
